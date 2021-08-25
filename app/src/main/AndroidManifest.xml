@@ -14,7 +14,7 @@
             android:value="true" />
         <meta-data
             android:name="xposeddescription"
-            android:value="Hide At a Glance widget from Pixel Launcher\nby Azuo" />
+            android:value="Remove At a Glance from Pixel Launcher\nby Azuo" />
         <meta-data
             android:name="xposedminversion"
             android:value="82" />
