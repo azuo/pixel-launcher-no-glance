@@ -1,0 +1,51 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    compileSdk 30
+
+    defaultConfig {
+        applicationId "azuo.pixellaunchernoglance"
+        minSdk 21
+        targetSdk 30
+        versionCode 5
+        versionName "1.0.5"
+    }
+
+    signingConfigs {
+        config {
+            storeFile file('../pixellaunchernoglance.jks')
+            storePassword 'pixellaunchernoglance'
+            keyAlias 'pixellaunchernoglance'
+            keyPassword 'pixellaunchernoglance'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+        debug {
+            signingConfig signingConfigs.config
+        }
+        applicationVariants.all{
+            variant ->
+                variant.outputs.each{
+                    output->
+                        output.outputFileName = "PixelLauncherNoGlance.apk"
+                }
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    compileOnly 'de.robv.android.xposed:api:82'
+}
